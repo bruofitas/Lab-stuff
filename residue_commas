@@ -1,0 +1,20 @@
+# Simple code to help my workflow by sorting residue positions 
+# for easy copying and pasting into molecular docking servers. :)
+
+residue_list = set()
+while True:
+    # Input string
+    input_string = input("Enter positions (e.g., '24 25 26'): ")
+    positions = list(map(int, input_string.split()))
+    residue_list.update(positions)
+    more_data = input("Do you want to upload more data? (yes/no): ").strip().lower()
+    if more_data != 'yes':
+        break
+
+# Convert the set to a sorted list
+sorted_list = sorted(residue_list)
+formatted_list = [str(num) for num in sorted_list]
+output = ", ".join(formatted_list)
+
+print("Formatted list:")
+print(output)
